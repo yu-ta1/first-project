@@ -1,9 +1,5 @@
-@extends('layouts.app')
-
-@section('content')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    {{Auth::user()->name}}
     <head>
         <meta charset="utf-8">
         <title>Blog</title>
@@ -19,6 +15,7 @@
                     <h2 class='title'>
                          <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                     </h2>
+                    <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
                     <p class='body'>
                         {{ $post->body }}
                     </p>
@@ -30,4 +27,3 @@
         </div>
     </body>
 </html>
-@endsection
